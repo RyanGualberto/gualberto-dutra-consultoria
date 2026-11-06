@@ -9,4 +9,4 @@ Landing page institucional e carta de apresentação (PDF).
 
 ## Contato
 - Cassio Gualberto — +55 13 98883-3020 · cassio.gualberto82@gmail.com
-- Dutra — +55 13 98177-4580
+- Felipe Dutra — +55 13 98177-4580

@@ -1,212 +1,829 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<title>Gualberto &amp; Dutra · Apresentação</title>
-<style>
-@page{size:297mm 167mm;margin:0}
-:root{--navy:#0F2547;--navy-500:#3A5784;--off:#F6F4EF;--off-2:#ECE8DF;--gold:#B8975A;--gold-soft:#D9C49A;--ink-60:rgba(15,37,71,.64);--ink-12:rgba(15,37,71,.12)}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:'Avenir Next','Helvetica Neue',Arial,sans-serif;color:var(--navy);background:#888}
-.serif{font-family:'Didot','Bodoni 72',Georgia,serif;font-style:italic;font-weight:400}
-.mono{font-family:Menlo,monospace}
-.slide{position:relative;width:297mm;height:167mm;overflow:hidden;background:var(--off);page-break-after:always;break-after:page;padding:16mm 18mm}
-.slide:last-child{page-break-after:auto;break-after:auto}
-.dark{background:var(--navy);color:var(--off)}
-.eyebrow{display:flex;align-items:center;gap:10px;font-family:Menlo,monospace;font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60)}
-.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold)}
-.dark .eyebrow{color:rgba(246,244,239,.6)}
-.footer{position:absolute;left:18mm;right:18mm;bottom:9mm;display:flex;justify-content:space-between;font-family:Menlo,monospace;font-size:7pt;letter-spacing:.1em;color:rgba(15,37,71,.45);text-transform:uppercase}
-.fbrand{display:flex;align-items:center;gap:3mm}
-.fbrand::before{content:"";width:5mm;height:5.2mm;background:url(assets/logo-gd-azul.png) center/contain no-repeat}
-.dark .fbrand::before{background-image:url(assets/logo-gd-branca.png)}
-.dark .footer{color:rgba(246,244,239,.45)}
-.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--ink-12) 1px,transparent 1px),linear-gradient(90deg,var(--ink-12) 1px,transparent 1px);background-size:14mm 14mm;opacity:.5;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 70% 40%,#000,transparent 75%)}
-.dark .grid-bg{background-image:linear-gradient(rgba(246,244,239,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(246,244,239,.07) 1px,transparent 1px);opacity:1}
-h1,h2{font-weight:700;letter-spacing:-.035em;line-height:1}
-h2{font-size:34pt}
-h2 .serif{color:var(--navy-500)}
-.dark h2 .serif,.dark h1 .serif{color:var(--gold-soft)}
-p{line-height:1.5}
+  <meta charset="UTF-8" />
+  <title>Gualberto &amp; Dutra · Apresentação</title>
+  <style>
+    @page {
+      size: 297mm 167mm;
+      margin: 0
+    }
 
-/* capa */
-.cover{display:flex;flex-direction:column;justify-content:space-between}
-.cover .logo{width:30mm;height:auto}
-.cover h1{font-size:54pt;margin-top:6mm}
-.cover .sub{font-size:13pt;color:rgba(246,244,239,.7);max-width:150mm;margin-top:6mm}
-.cover .rule{display:flex;width:70mm;height:2px;margin-top:8mm}
-.cover .rule i{flex:1;background:var(--off)}.cover .rule b{flex:1;background:var(--gold)}
-.rings{position:absolute;right:-60mm;top:50%;transform:translateY(-50%);width:190mm;height:190mm}
-.rings circle{fill:none;stroke:rgba(246,244,239,.08)}
-.cover-tag{position:absolute;top:16mm;right:18mm;font-family:Menlo,monospace;font-size:8pt;letter-spacing:.14em;color:rgba(246,244,239,.55);text-transform:uppercase;text-align:right}
+    :root {
+      --navy: #0F2547;
+      --navy-500: #3A5784;
+      --off: #F6F4EF;
+      --off-2: #ECE8DF;
+      --gold: #B8975A;
+      --gold-soft: #D9C49A;
+      --ink-60: rgba(15, 37, 71, .64);
+      --ink-12: rgba(15, 37, 71, .12)
+    }
 
-/* sobre */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16mm;height:100%;align-items:center}
-.big-quote{font-size:21pt;font-weight:600;letter-spacing:-.02em;line-height:1.25}
-.big-quote .serif{color:var(--navy-500)}
-.values{display:grid;gap:5mm}
-.value{display:flex;gap:5mm;padding:5mm 6mm;background:#fff;border:1px solid var(--ink-12);border-radius:5mm}
-.value b{font-family:Menlo,monospace;font-size:8pt;color:var(--gold);padding-top:1mm}
-.value h4{font-size:12.5pt;letter-spacing:-.01em}
-.value p{font-size:9.5pt;color:var(--ink-60);margin-top:1mm}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* áreas */
-.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:9mm}
-.area{border:1px solid rgba(246,244,239,.14);border-radius:6mm;padding:7mm 6mm;background:rgba(255,255,255,.04);display:flex;flex-direction:column;min-height:92mm}
-.area .num{display:flex;justify-content:space-between;font-family:Menlo,monospace;font-size:7.5pt;color:rgba(246,244,239,.5);letter-spacing:.1em}
-.area svg{width:17mm;height:17mm;margin:7mm 0 5mm;color:var(--off)}
-.area h3{font-size:14pt;letter-spacing:-.02em}
-.area p{font-size:9pt;color:rgba(246,244,239,.68);margin-top:2mm}
-.area .tags{margin-top:auto;padding-top:4mm;display:flex;flex-wrap:wrap;gap:1.5mm}
-.area .tags span{font-family:Menlo,monospace;font-size:6.5pt;border:1px solid rgba(246,244,239,.2);border-radius:99px;padding:1.2mm 2.4mm;color:rgba(246,244,239,.8)}
+    html,
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact
+    }
 
-/* método */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm;margin-top:14mm;position:relative}
-.steps::before{content:"";position:absolute;left:5mm;right:5mm;top:5mm;height:2px;background:linear-gradient(90deg,var(--navy),var(--gold))}
-.step .dot{position:relative;width:10mm;height:10mm;border-radius:50%;background:var(--navy);color:var(--off);display:grid;place-items:center;font-family:Menlo,monospace;font-size:8pt;box-shadow:0 0 0 2mm var(--off)}
-.step h3{font-size:15pt;letter-spacing:-.02em;margin-top:7mm}
-.step p{font-size:9.5pt;color:var(--ink-60);margin-top:2mm}
-.step ul{list-style:none;margin-top:4mm;font-family:Menlo,monospace;font-size:7.5pt;color:var(--ink-60);display:grid;gap:1.4mm}
-.step li::before{content:"→ ";color:var(--gold)}
+    body {
+      font-family: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--navy);
+      background: #888
+    }
 
-/* diferenciais */
-.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:5mm;margin-top:8mm;height:88mm}
-.b{border-radius:6mm;padding:6mm;background:#fff;border:1px solid var(--ink-12);display:flex;flex-direction:column;justify-content:space-between}
-.b .k{font-family:Menlo,monospace;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:rgba(15,37,71,.45)}
-.b h4{font-size:13pt;letter-spacing:-.02em}
-.b p{font-size:9pt;color:var(--ink-60);margin-top:1.5mm}
-.b.navy{background:var(--navy);color:var(--off);grid-row:span 2;border:none}
-.b.navy p{color:rgba(246,244,239,.68)}.b.navy .k{color:rgba(246,244,239,.5)}
-.stat{font-size:40pt;font-weight:700;letter-spacing:-.05em;line-height:1}
-.stat .serif{color:var(--gold)}
+    .serif {
+      font-family: 'Didot', 'Bodoni 72', Georgia, serif;
+      font-style: italic;
+      font-weight: 400
+    }
 
-/* contato */
-.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:14mm;height:100%;align-items:center}
-.contact h2{font-size:46pt}
-.cards{display:grid;gap:5mm}
-.pc{background:rgba(255,255,255,.05);border:1px solid rgba(246,244,239,.15);border-radius:6mm;padding:6mm 7mm}
-.pc .top{display:flex;align-items:center;gap:4mm}
-.pc .av{width:12mm;height:12mm;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:17pt}
-.pc h3{font-size:15pt;letter-spacing:-.02em}
-.pc small{font-family:Menlo,monospace;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,244,239,.5)}
-.pc .ln{display:flex;justify-content:space-between;margin-top:3.5mm;padding-top:3.5mm;border-top:1px dashed rgba(246,244,239,.18);font-size:10.5pt}
-.pc .ln span:first-child{font-family:Menlo,monospace;font-size:7.5pt;letter-spacing:.1em;color:rgba(246,244,239,.5);text-transform:uppercase;padding-top:.8mm}
-.pc a{color:var(--off);text-decoration:none}
-</style>
+    .mono {
+      font-family: Menlo, monospace
+    }
+
+    .slide {
+      position: relative;
+      width: 297mm;
+      height: 167mm;
+      overflow: hidden;
+      background: var(--off);
+      page-break-after: always;
+      break-after: page;
+      padding: 16mm 18mm
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+      break-after: auto
+    }
+
+    .dark {
+      background: var(--navy);
+      color: var(--off)
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Menlo, monospace;
+      font-size: 8.5pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink-60)
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold)
+    }
+
+    .dark .eyebrow {
+      color: rgba(246, 244, 239, .6)
+    }
+
+    .footer {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 9mm;
+      display: flex;
+      justify-content: space-between;
+      font-family: Menlo, monospace;
+      font-size: 7pt;
+      letter-spacing: .1em;
+      color: rgba(15, 37, 71, .45);
+      text-transform: uppercase
+    }
+
+    .fbrand {
+      display: flex;
+      align-items: center;
+      gap: 3mm
+    }
+
+    .fbrand::before {
+      content: "";
+      width: 5mm;
+      height: 5.2mm;
+      background: url(assets/logo-gd-azul.png) center/contain no-repeat
+    }
+
+    .dark .fbrand::before {
+      background-image: url(assets/logo-gd-branca.png)
+    }
+
+    .dark .footer {
+      color: rgba(246, 244, 239, .45)
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(var(--ink-12) 1px, transparent 1px), linear-gradient(90deg, var(--ink-12) 1px, transparent 1px);
+      background-size: 14mm 14mm;
+      opacity: .5;
+      -webkit-mask-image: radial-gradient(ellipse 60% 70% at 70% 40%, #000, transparent 75%)
+    }
+
+    .dark .grid-bg {
+      background-image: linear-gradient(rgba(246, 244, 239, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(246, 244, 239, .07) 1px, transparent 1px);
+      opacity: 1
+    }
+
+    h1,
+    h2 {
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1
+    }
+
+    h2 {
+      font-size: 34pt
+    }
+
+    h2 .serif {
+      color: var(--navy-500)
+    }
+
+    .dark h2 .serif,
+    .dark h1 .serif {
+      color: var(--gold-soft)
+    }
+
+    p {
+      line-height: 1.5
+    }
+
+    /* capa */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .cover .logo {
+      width: 30mm;
+      height: auto
+    }
+
+    .cover h1 {
+      font-size: 54pt;
+      margin-top: 6mm
+    }
+
+    .cover .sub {
+      font-size: 13pt;
+      color: rgba(246, 244, 239, .7);
+      max-width: 150mm;
+      margin-top: 6mm
+    }
+
+    .cover .rule {
+      display: flex;
+      width: 70mm;
+      height: 2px;
+      margin-top: 8mm
+    }
+
+    .cover .rule i {
+      flex: 1;
+      background: var(--off)
+    }
+
+    .cover .rule b {
+      flex: 1;
+      background: var(--gold)
+    }
+
+    .rings {
+      position: absolute;
+      right: -60mm;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 190mm;
+      height: 190mm
+    }
+
+    .rings circle {
+      fill: none;
+      stroke: rgba(246, 244, 239, .08)
+    }
+
+    .cover-tag {
+      position: absolute;
+      top: 16mm;
+      right: 18mm;
+      font-family: Menlo, monospace;
+      font-size: 8pt;
+      letter-spacing: .14em;
+      color: rgba(246, 244, 239, .55);
+      text-transform: uppercase;
+      text-align: right
+    }
+
+    /* sobre */
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16mm;
+      height: 100%;
+      align-items: center
+    }
+
+    .big-quote {
+      font-size: 21pt;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      line-height: 1.25
+    }
+
+    .big-quote .serif {
+      color: var(--navy-500)
+    }
+
+    .values {
+      display: grid;
+      gap: 5mm
+    }
+
+    .value {
+      display: flex;
+      gap: 5mm;
+      padding: 5mm 6mm;
+      background: #fff;
+      border: 1px solid var(--ink-12);
+      border-radius: 5mm
+    }
+
+    .value b {
+      font-family: Menlo, monospace;
+      font-size: 8pt;
+      color: var(--gold);
+      padding-top: 1mm
+    }
+
+    .value h4 {
+      font-size: 12.5pt;
+      letter-spacing: -.01em
+    }
+
+    .value p {
+      font-size: 9.5pt;
+      color: var(--ink-60);
+      margin-top: 1mm
+    }
+
+    /* áreas */
+    .areas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5mm;
+      margin-top: 9mm
+    }
+
+    .area {
+      border: 1px solid rgba(246, 244, 239, .14);
+      border-radius: 6mm;
+      padding: 7mm 6mm;
+      background: rgba(255, 255, 255, .04);
+      display: flex;
+      flex-direction: column;
+      min-height: 92mm
+    }
+
+    .area .num {
+      display: flex;
+      justify-content: space-between;
+      font-family: Menlo, monospace;
+      font-size: 7.5pt;
+      color: rgba(246, 244, 239, .5);
+      letter-spacing: .1em
+    }
+
+    .area svg {
+      width: 17mm;
+      height: 17mm;
+      margin: 7mm 0 5mm;
+      color: var(--off)
+    }
+
+    .area h3 {
+      font-size: 14pt;
+      letter-spacing: -.02em
+    }
+
+    .area p {
+      font-size: 9pt;
+      color: rgba(246, 244, 239, .68);
+      margin-top: 2mm
+    }
+
+    .area .tags {
+      margin-top: auto;
+      padding-top: 4mm;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5mm
+    }
+
+    .area .tags span {
+      font-family: Menlo, monospace;
+      font-size: 6.5pt;
+      border: 1px solid rgba(246, 244, 239, .2);
+      border-radius: 99px;
+      padding: 1.2mm 2.4mm;
+      color: rgba(246, 244, 239, .8)
+    }
+
+    /* método */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6mm;
+      margin-top: 14mm;
+      position: relative
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 5mm;
+      right: 5mm;
+      top: 5mm;
+      height: 2px;
+      background: linear-gradient(90deg, var(--navy), var(--gold))
+    }
+
+    .step .dot {
+      position: relative;
+      width: 10mm;
+      height: 10mm;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--off);
+      display: grid;
+      place-items: center;
+      font-family: Menlo, monospace;
+      font-size: 8pt;
+      box-shadow: 0 0 0 2mm var(--off)
+    }
+
+    .step h3 {
+      font-size: 15pt;
+      letter-spacing: -.02em;
+      margin-top: 7mm
+    }
+
+    .step p {
+      font-size: 9.5pt;
+      color: var(--ink-60);
+      margin-top: 2mm
+    }
+
+    .step ul {
+      list-style: none;
+      margin-top: 4mm;
+      font-family: Menlo, monospace;
+      font-size: 7.5pt;
+      color: var(--ink-60);
+      display: grid;
+      gap: 1.4mm
+    }
+
+    .step li::before {
+      content: "→ ";
+      color: var(--gold)
+    }
+
+    /* diferenciais */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 5mm;
+      margin-top: 8mm;
+      height: 88mm
+    }
+
+    .b {
+      border-radius: 6mm;
+      padding: 6mm;
+      background: #fff;
+      border: 1px solid var(--ink-12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .b .k {
+      font-family: Menlo, monospace;
+      font-size: 7pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(15, 37, 71, .45)
+    }
+
+    .b h4 {
+      font-size: 13pt;
+      letter-spacing: -.02em
+    }
+
+    .b p {
+      font-size: 9pt;
+      color: var(--ink-60);
+      margin-top: 1.5mm
+    }
+
+    .b.navy {
+      background: var(--navy);
+      color: var(--off);
+      grid-row: span 2;
+      border: none
+    }
+
+    .b.navy p {
+      color: rgba(246, 244, 239, .68)
+    }
+
+    .b.navy .k {
+      color: rgba(246, 244, 239, .5)
+    }
+
+    .stat {
+      font-size: 40pt;
+      font-weight: 700;
+      letter-spacing: -.05em;
+      line-height: 1
+    }
+
+    .stat .serif {
+      color: var(--gold)
+    }
+
+    /* contato */
+    .contact {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14mm;
+      height: 100%;
+      align-items: center
+    }
+
+    .contact h2 {
+      font-size: 46pt
+    }
+
+    .cards {
+      display: grid;
+      gap: 5mm
+    }
+
+    .pc {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(246, 244, 239, .15);
+      border-radius: 6mm;
+      padding: 6mm 7mm
+    }
+
+    .pc .top {
+      display: flex;
+      align-items: center;
+      gap: 4mm
+    }
+
+    .pc .av {
+      width: 12mm;
+      height: 12mm;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+      font-size: 17pt
+    }
+
+    .pc h3 {
+      font-size: 15pt;
+      letter-spacing: -.02em
+    }
+
+    .pc small {
+      font-family: Menlo, monospace;
+      font-size: 7pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(246, 244, 239, .5)
+    }
+
+    .pc .ln {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.5mm;
+      padding-top: 3.5mm;
+      border-top: 1px dashed rgba(246, 244, 239, .18);
+      font-size: 10.5pt
+    }
+
+    .pc .ln span:first-child {
+      font-family: Menlo, monospace;
+      font-size: 7.5pt;
+      letter-spacing: .1em;
+      color: rgba(246, 244, 239, .5);
+      text-transform: uppercase;
+      padding-top: .8mm
+    }
+
+    .pc a {
+      color: var(--off);
+      text-decoration: none
+    }
+  </style>
 </head>
+
 <body>
-<svg width="0" height="0" style="position:absolute">
-</svg>
+  <svg width="0" height="0" style="position:absolute">
+  </svg>
 
-<!-- 1. CAPA -->
-<section class="slide dark cover">
-  <div class="grid-bg"></div>
-  <svg class="rings" viewBox="0 0 200 200"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="99"/></svg>
-  <div class="cover-tag">Carta de apresentação<br>2026</div>
-  <img class="logo" style="position:relative" src="assets/logo-gd-branca.png" alt="Gualberto &amp; Dutra">
-  <div style="position:relative">
-    <div class="eyebrow">Consultoria especializada em varejo</div>
-    <h1>Gualberto &amp; Dutra<br><span class="serif">Consultoria Varejo</span></h1>
-    <div class="rule"><i></i><b></b></div>
-    <p class="sub">Administração, Finanças, Recursos Humanos e Prevenção de Perdas — integradas para fazer o seu varejo crescer com segurança.</p>
-  </div>
-  <div class="footer" style="position:relative;left:0;right:0;bottom:0"><span>+55 13 98883-3020 · +55 13 98177-4580</span><span>cassio.gualberto82@gmail.com</span></div>
-</section>
-
-<!-- 2. QUEM SOMOS -->
-<section class="slide">
-  <div class="two">
-    <div>
-      <div class="eyebrow">01 · Quem somos</div>
-      <h2 style="margin:6mm 0 8mm">Nascidos <span class="serif">dentro do varejo.</span></h2>
-      <p class="big-quote">Conhecemos o chão de loja, a pressão da margem e o valor de cada centavo. Transformamos processos, números e pessoas em <span class="serif">resultado sustentável.</span></p>
+  <!-- 1. CAPA -->
+  <section class="slide dark cover">
+    <div class="grid-bg"></div>
+    <svg class="rings" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="30" />
+      <circle cx="100" cy="100" r="50" />
+      <circle cx="100" cy="100" r="70" />
+      <circle cx="100" cy="100" r="90" />
+      <circle cx="100" cy="100" r="99" />
+    </svg>
+    <div class="cover-tag">Carta de apresentação<br>2026</div>
+    <img class="logo" style="position:relative" src="assets/logo-gd-branca.png" alt="Gualberto &amp; Dutra">
+    <div style="position:relative">
+      <div class="eyebrow">Consultoria especializada em varejo</div>
+      <h1>Gualberto &amp; Dutra<br><span class="serif">Consultoria Varejo</span></h1>
+      <div class="rule"><i></i><b></b></div>
+      <p class="sub">Administração, Finanças, Recursos Humanos e Prevenção de Perdas — integradas para fazer o seu
+        varejo crescer com segurança.</p>
     </div>
-    <div class="values">
-      <div class="value"><b>01</b><div><h4>Seriedade</h4><p>Compromisso, ética e transparência em cada etapa do projeto.</p></div></div>
-      <div class="value"><b>02</b><div><h4>Método</h4><p>Diagnóstico profundo antes de qualquer proposta de mudança.</p></div></div>
-      <div class="value"><b>03</b><div><h4>Proximidade</h4><p>Sócios na linha de frente, atendendo diretamente o cliente.</p></div></div>
-      <div class="value"><b>04</b><div><h4>Resultado</h4><p>Metas claras, indicadores e acompanhamento até a entrega.</p></div></div>
-    </div>
-  </div>
-  <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>02</span></div>
-</section>
+    <div class="footer" style="position:relative;left:0;right:0;bottom:0"><span>+55 13 98883-3020 · +55 13
+        98177-4580</span><span>cassio.gualberto82@gmail.com</span></div>
+  </section>
 
-<!-- 3. ÁREAS -->
-<section class="slide dark">
-  <div class="eyebrow">02 · Áreas de atuação</div>
-  <h2 style="margin-top:5mm">Quatro frentes, <span class="serif">uma só estratégia.</span></h2>
-  <div class="areas">
-    <div class="area"><div class="num"><span>01</span><span>ADM</span></div>
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="34" r="9"/><path d="M30 14v6M30 48v6M10 34h6M44 34h6M16 20l4 4M40 44l4 4M16 48l4-4M40 24l4-4"/><circle cx="56" cy="58" r="15"/><polyline points="56,49 56,58 62,62"/><path d="M52 40h8M56 40v3"/></svg>
-      <h3>Administração</h3><p>Otimização de processos administrativos e eficiência operacional.</p>
-      <div class="tags"><span>Processos</span><span>KPIs</span><span>Rotinas</span></div></div>
-    <div class="area"><div class="num"><span>02</span><span>FIN</span></div>
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="24" cy="56" rx="12" ry="4"/><path d="M12 56v12c0 2.2 5.4 4 12 4s12-1.8 12-4V56M12 62c0 2.2 5.4 4 12 4s12-1.8 12-4"/><ellipse cx="54" cy="48" rx="12" ry="4"/><path d="M42 48v20c0 2.2 5.4 4 12 4s12-1.8 12-4V48M42 56c0 2.2 5.4 4 12 4s12-1.8 12-4M42 62c0 2.2 5.4 4 12 4s12-1.8 12-4"/><polyline points="12,36 28,24 40,30 66,10"/><polyline points="56,10 66,10 66,20"/></svg>
-      <h3>Finanças</h3><p>Controle de fluxo de caixa, custos e planejamento orçamentário.</p>
-      <div class="tags"><span>Fluxo de caixa</span><span>Custos</span><span>Orçamento</span></div></div>
-    <div class="area"><div class="num"><span>03</span><span>RH</span></div>
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="42" cy="42" r="26" stroke-dasharray="10 8"/><circle cx="42" cy="12" r="5"/><path d="M34 24c0-4 3.6-6 8-6s8 2 8 6"/><circle cx="42" cy="62" r="5"/><path d="M34 74c0-4 3.6-6 8-6s8 2 8 6"/><circle cx="14" cy="38" r="5"/><path d="M6 50c0-4 3.6-6 8-6s8 2 8 6"/><circle cx="70" cy="38" r="5"/><path d="M62 50c0-4 3.6-6 8-6s8 2 8 6"/></svg>
-      <h3>Recursos Humanos</h3><p>Treinamento de equipes, recrutamento e alinhamento estratégico.</p>
-      <div class="tags"><span>Recrutamento</span><span>Treinamento</span><span>Liderança</span></div></div>
-    <div class="area"><div class="num"><span>04</span><span>PP</span></div>
-      <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18l44 10-4 16-44-10z"/><circle cx="52" cy="35" r="4"/><path d="M58 28l10 3-2 8-10-3"/><path d="M24 37v14H12M12 44v14"/><path d="M60 50l14 4v9c0 7-6 11-14 13-8-2-14-6-14-13v-9z"/><polyline points="54,63 58,67 66,59"/></svg>
-      <h3>Prevenção de Perdas</h3><p>Auditoria de processos, segurança patrimonial e redução de quebras.</p>
-      <div class="tags"><span>Auditoria</span><span>Segurança</span><span>Quebras</span></div></div>
-  </div>
-  <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>03</span></div>
-</section>
-
-<!-- 4. MÉTODO -->
-<section class="slide">
-  <div class="grid-bg"></div>
-  <div style="position:relative">
-    <div class="eyebrow">03 · Como trabalhamos</div>
-    <h2 style="margin-top:5mm">Método claro, <span class="serif">resultado mensurável.</span></h2>
-    <div class="steps">
-      <div class="step"><div class="dot">01</div><h3>Diagnóstico</h3><p>Imersão na operação: lojas, equipes, números e controles.</p><ul><li>Visitas técnicas</li><li>Entrevistas</li><li>Análise de dados</li></ul></div>
-      <div class="step"><div class="dot">02</div><h3>Plano de ação</h3><p>Prioridades de maior impacto com metas, prazos e responsáveis.</p><ul><li>Matriz de prioridades</li><li>Metas &amp; indicadores</li><li>Cronograma</li></ul></div>
-      <div class="step"><div class="dot">03</div><h3>Implementação</h3><p>Lado a lado com a sua equipe: treinamentos, rotinas e controles.</p><ul><li>Treinamentos</li><li>Novos processos</li><li>Controles</li></ul></div>
-      <div class="step"><div class="dot">04</div><h3>Acompanhamento</h3><p>Medição de resultados, correção de rotas e melhoria contínua.</p><ul><li>Relatórios periódicos</li><li>Reuniões de resultado</li><li>Melhoria contínua</li></ul></div>
+  <!-- 2. QUEM SOMOS -->
+  <section class="slide">
+    <div class="two">
+      <div>
+        <div class="eyebrow">01 · Quem somos</div>
+        <h2 style="margin:6mm 0 8mm">Nascidos <span class="serif">dentro do varejo.</span></h2>
+        <p class="big-quote">Conhecemos o chão de loja, a pressão da margem e o valor de cada centavo. Transformamos
+          processos, números e pessoas em <span class="serif">resultado sustentável.</span></p>
+      </div>
+      <div class="values">
+        <div class="value"><b>01</b>
+          <div>
+            <h4>Seriedade</h4>
+            <p>Compromisso, ética e transparência em cada etapa do projeto.</p>
+          </div>
+        </div>
+        <div class="value"><b>02</b>
+          <div>
+            <h4>Método</h4>
+            <p>Diagnóstico profundo antes de qualquer proposta de mudança.</p>
+          </div>
+        </div>
+        <div class="value"><b>03</b>
+          <div>
+            <h4>Proximidade</h4>
+            <p>Sócios na linha de frente, atendendo diretamente o cliente.</p>
+          </div>
+        </div>
+        <div class="value"><b>04</b>
+          <div>
+            <h4>Resultado</h4>
+            <p>Metas claras, indicadores e acompanhamento até a entrega.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>04</span></div>
-</section>
+    <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>02</span></div>
+  </section>
 
-<!-- 5. DIFERENCIAIS -->
-<section class="slide" style="background:var(--off-2)">
-  <div class="eyebrow">04 · Por que nós</div>
-  <h2 style="margin-top:5mm;font-size:29pt">Seriedade de quem conhece, <span class="serif">inovação de quem evolui.</span></h2>
-  <div class="bento">
-    <div class="b navy"><span class="k">Visão 360°</span><div><h4 style="font-size:17pt">Enxergamos o que passa despercebido.</h4><p>Integramos gestão, finanças, pessoas e prevenção de perdas para revelar desperdícios e oportunidades que uma análise isolada não mostraria.</p></div></div>
-    <div class="b"><span class="k">Foco</span><div><div class="stat">100<span class="serif">%</span></div><p>dedicados ao varejo.</p></div></div>
-    <div class="b"><span class="k">Integração</span><div><div class="stat">4</div><p>frentes trabalhando por um mesmo resultado.</p></div></div>
-    <div class="b"><span class="k">Proximidade</span><div><h4>Sócios na linha de frente</h4><p>Atendimento direto com quem decide.</p></div></div>
-    <div class="b"><span class="k">Sob medida</span><div><h4>Do comércio local à rede</h4><p>Cada projeto parte da sua realidade.</p></div></div>
-  </div>
-  <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>05</span></div>
-</section>
+  <!-- 3. ÁREAS -->
+  <section class="slide dark">
+    <div class="eyebrow">02 · Áreas de atuação</div>
+    <h2 style="margin-top:5mm">Quatro frentes, <span class="serif">uma só estratégia.</span></h2>
+    <div class="areas">
+      <div class="area">
+        <div class="num"><span>01</span><span>ADM</span></div>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="30" cy="34" r="9" />
+          <path d="M30 14v6M30 48v6M10 34h6M44 34h6M16 20l4 4M40 44l4 4M16 48l4-4M40 24l4-4" />
+          <circle cx="56" cy="58" r="15" />
+          <polyline points="56,49 56,58 62,62" />
+          <path d="M52 40h8M56 40v3" />
+        </svg>
+        <h3>Administração</h3>
+        <p>Otimização de processos administrativos e eficiência operacional.</p>
+        <div class="tags"><span>Processos</span><span>KPIs</span><span>Rotinas</span></div>
+      </div>
+      <div class="area">
+        <div class="num"><span>02</span><span>FIN</span></div>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+          stroke-linejoin="round">
+          <ellipse cx="24" cy="56" rx="12" ry="4" />
+          <path d="M12 56v12c0 2.2 5.4 4 12 4s12-1.8 12-4V56M12 62c0 2.2 5.4 4 12 4s12-1.8 12-4" />
+          <ellipse cx="54" cy="48" rx="12" ry="4" />
+          <path
+            d="M42 48v20c0 2.2 5.4 4 12 4s12-1.8 12-4V48M42 56c0 2.2 5.4 4 12 4s12-1.8 12-4M42 62c0 2.2 5.4 4 12 4s12-1.8 12-4" />
+          <polyline points="12,36 28,24 40,30 66,10" />
+          <polyline points="56,10 66,10 66,20" />
+        </svg>
+        <h3>Finanças</h3>
+        <p>Controle de fluxo de caixa, custos e planejamento orçamentário.</p>
+        <div class="tags"><span>Fluxo de caixa</span><span>Custos</span><span>Orçamento</span></div>
+      </div>
+      <div class="area">
+        <div class="num"><span>03</span><span>RH</span></div>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="42" cy="42" r="26" stroke-dasharray="10 8" />
+          <circle cx="42" cy="12" r="5" />
+          <path d="M34 24c0-4 3.6-6 8-6s8 2 8 6" />
+          <circle cx="42" cy="62" r="5" />
+          <path d="M34 74c0-4 3.6-6 8-6s8 2 8 6" />
+          <circle cx="14" cy="38" r="5" />
+          <path d="M6 50c0-4 3.6-6 8-6s8 2 8 6" />
+          <circle cx="70" cy="38" r="5" />
+          <path d="M62 50c0-4 3.6-6 8-6s8 2 8 6" />
+        </svg>
+        <h3>Recursos Humanos</h3>
+        <p>Treinamento de equipes, recrutamento e alinhamento estratégico.</p>
+        <div class="tags"><span>Recrutamento</span><span>Treinamento</span><span>Liderança</span></div>
+      </div>
+      <div class="area">
+        <div class="num"><span>04</span><span>PP</span></div>
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M14 18l44 10-4 16-44-10z" />
+          <circle cx="52" cy="35" r="4" />
+          <path d="M58 28l10 3-2 8-10-3" />
+          <path d="M24 37v14H12M12 44v14" />
+          <path d="M60 50l14 4v9c0 7-6 11-14 13-8-2-14-6-14-13v-9z" />
+          <polyline points="54,63 58,67 66,59" />
+        </svg>
+        <h3>Prevenção de Perdas</h3>
+        <p>Auditoria de processos, segurança patrimonial e redução de quebras.</p>
+        <div class="tags"><span>Auditoria</span><span>Segurança</span><span>Quebras</span></div>
+      </div>
+    </div>
+    <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>03</span></div>
+  </section>
 
-<!-- 6. CONTATO -->
-<section class="slide dark">
-  <div class="grid-bg"></div>
-  <svg class="rings" viewBox="0 0 200 200" style="left:-90mm;right:auto"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90"/></svg>
-  <div class="contact" style="position:relative">
-    <div>
-      <div class="eyebrow">05 · Vamos conversar</div>
-      <h2 style="margin:6mm 0 6mm">Seu varejo,<br><span class="serif">mais forte.</span></h2>
-      <p style="color:rgba(246,244,239,.7);font-size:12pt;max-width:120mm">Agende um diagnóstico inicial sem compromisso e descubra onde estão as maiores oportunidades da sua operação.</p>
-      <img style="width:17mm;height:auto;margin-top:10mm;display:block" src="assets/logo-gd-branca.png" alt="">
+  <!-- 4. MÉTODO -->
+  <section class="slide">
+    <div class="grid-bg"></div>
+    <div style="position:relative">
+      <div class="eyebrow">03 · Como trabalhamos</div>
+      <h2 style="margin-top:5mm">Método claro, <span class="serif">resultado mensurável.</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="dot">01</div>
+          <h3>Diagnóstico</h3>
+          <p>Imersão na operação: lojas, equipes, números e controles.</p>
+          <ul>
+            <li>Visitas técnicas</li>
+            <li>Entrevistas</li>
+            <li>Análise de dados</li>
+          </ul>
+        </div>
+        <div class="step">
+          <div class="dot">02</div>
+          <h3>Plano de ação</h3>
+          <p>Prioridades de maior impacto com metas, prazos e responsáveis.</p>
+          <ul>
+            <li>Matriz de prioridades</li>
+            <li>Metas &amp; indicadores</li>
+            <li>Cronograma</li>
+          </ul>
+        </div>
+        <div class="step">
+          <div class="dot">03</div>
+          <h3>Implementação</h3>
+          <p>Lado a lado com a sua equipe: treinamentos, rotinas e controles.</p>
+          <ul>
+            <li>Treinamentos</li>
+            <li>Novos processos</li>
+            <li>Controles</li>
+          </ul>
+        </div>
+        <div class="step">
+          <div class="dot">04</div>
+          <h3>Acompanhamento</h3>
+          <p>Medição de resultados, correção de rotas e melhoria contínua.</p>
+          <ul>
+            <li>Relatórios periódicos</li>
+            <li>Reuniões de resultado</li>
+            <li>Melhoria contínua</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="cards">
-      <div class="pc"><div class="top"><div class="av serif">G</div><div><h3>Cassio Gualberto</h3><small>Sócio fundador</small></div></div>
-        <div class="ln"><span>WhatsApp</span><a href="https://wa.me/5513988833020">+55 13 98883-3020</a></div>
-        <div class="ln"><span>E-mail</span><a href="mailto:cassio.gualberto82@gmail.com">cassio.gualberto82@gmail.com</a></div></div>
-      <div class="pc"><div class="top"><div class="av serif">D</div><div><h3>Dutra</h3><small>Sócio fundador</small></div></div>
-        <div class="ln"><span>WhatsApp</span><a href="https://wa.me/5513981774580">+55 13 98177-4580</a></div></div>
+    <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>04</span></div>
+  </section>
+
+  <!-- 5. DIFERENCIAIS -->
+  <section class="slide" style="background:var(--off-2)">
+    <div class="eyebrow">04 · Por que nós</div>
+    <h2 style="margin-top:5mm;font-size:29pt">Seriedade de quem conhece, <span class="serif">inovação de quem
+        evolui.</span></h2>
+    <div class="bento">
+      <div class="b navy"><span class="k">Visão 360°</span>
+        <div>
+          <h4 style="font-size:17pt">Enxergamos o que passa despercebido.</h4>
+          <p>Integramos gestão, finanças, pessoas e prevenção de perdas para revelar desperdícios e oportunidades que
+            uma análise isolada não mostraria.</p>
+        </div>
+      </div>
+      <div class="b"><span class="k">Foco</span>
+        <div>
+          <div class="stat">100<span class="serif">%</span></div>
+          <p>dedicados ao varejo.</p>
+        </div>
+      </div>
+      <div class="b"><span class="k">Integração</span>
+        <div>
+          <div class="stat">4</div>
+          <p>frentes trabalhando por um mesmo resultado.</p>
+        </div>
+      </div>
+      <div class="b"><span class="k">Proximidade</span>
+        <div>
+          <h4>Sócios na linha de frente</h4>
+          <p>Atendimento direto com quem decide.</p>
+        </div>
+      </div>
+      <div class="b"><span class="k">Sob medida</span>
+        <div>
+          <h4>Do comércio local à rede</h4>
+          <p>Cada projeto parte da sua realidade.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>06</span></div>
-</section>
+    <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>05</span></div>
+  </section>
+
+  <!-- 6. CONTATO -->
+  <section class="slide dark">
+    <div class="grid-bg"></div>
+    <svg class="rings" viewBox="0 0 200 200" style="left:-90mm;right:auto">
+      <circle cx="100" cy="100" r="30" />
+      <circle cx="100" cy="100" r="50" />
+      <circle cx="100" cy="100" r="70" />
+      <circle cx="100" cy="100" r="90" />
+    </svg>
+    <div class="contact" style="position:relative">
+      <div>
+        <div class="eyebrow">05 · Vamos conversar</div>
+        <h2 style="margin:6mm 0 6mm">Seu varejo,<br><span class="serif">mais forte.</span></h2>
+        <p style="color:rgba(246,244,239,.7);font-size:12pt;max-width:120mm">Agende um diagnóstico inicial sem
+          compromisso e descubra onde estão as maiores oportunidades da sua operação.</p>
+        <img style="width:17mm;height:auto;margin-top:10mm;display:block" src="assets/logo-gd-branca.png" alt="">
+      </div>
+      <div class="cards">
+        <div class="pc">
+          <div class="top">
+            <div class="av serif">G</div>
+            <div>
+              <h3>Cassio Gualberto</h3><small>Sócio fundador</small>
+            </div>
+          </div>
+          <div class="ln"><span>WhatsApp</span><a href="https://wa.me/5513988833020">+55 13 98883-3020</a></div>
+          <div class="ln"><span>E-mail</span><a
+              href="mailto:cassio.gualberto82@gmail.com">cassio.gualberto82@gmail.com</a></div>
+        </div>
+        <div class="pc">
+          <div class="top">
+            <div class="av serif">D</div>
+            <div>
+              <h3>Felipe Dutra</h3><small>Sócio fundador</small>
+            </div>
+          </div>
+          <div class="ln"><span>WhatsApp</span><a href="https://wa.me/5513981774580">+55 13 98177-4580</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span class="fbrand">Gualberto &amp; Dutra · Consultoria Varejo</span><span>06</span></div>
+  </section>
 </body>
+
 </html>
