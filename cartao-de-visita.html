@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Cartão de Visita · Gualberto &amp; Dutra Consultoria Varejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+@page {
+  size: 90mm 50mm;
+  margin: 0;
+}
+:root {
+  --navy: #0F2547;
+  --navy-900: #08152B;
+  --navy-800: #0B1C38;
+  --off: #F7F5F0;
+  --off-white: #FFFFFF;
+  --gold: #B8975A;
+  --gold-light: #DFCBA4;
+  --gold-subtle: rgba(184, 151, 90, 0.16);
+  --ink-60: rgba(15, 37, 71, 0.65);
+  --ink-40: rgba(15, 37, 71, 0.4);
+  --ink-10: rgba(15, 37, 71, 0.08);
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #20242C;
+  font-family: var(--sans);
+  color: var(--navy);
+  padding: 20px;
+}
+
+/* Presentation Container (for web preview & mockup rendering) */
+.preview-board {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.board-title {
+  color: #F7F5F0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.board-title span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #A0AAB8;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
+/* Card format: 90mm x 50mm */
+.business-card {
+  width: 90mm;
+  height: 50mm;
+  border-radius: 3mm;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -8px rgba(0,0,0,0.45);
+  flex-shrink: 0;
+  page-break-after: always;
+  break-after: page;
+}
+
+@media print {
+  body {
+    background: transparent;
+    padding: 0;
+  }
+  .preview-board {
+    margin: 0;
+    gap: 0;
+  }
+  .board-title, .label-tag {
+    display: none !important;
+  }
+  .cards-row {
+    display: block;
+    gap: 0;
+  }
+  .business-card {
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+  }
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.label-tag {
+  color: #8C99AB;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   FRENTE (FRONT) - DARK INSTITUTIONAL
+   ========================================= */
+.card-front {
+  background: radial-gradient(circle at 85% 20%, #152E54 0%, #0A1A33 65%, #071326 100%);
+  color: var(--off);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6.5mm 7mm;
+}
+.card-front .bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(247, 245, 240, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 245, 240, 0.04) 1px, transparent 1px);
+  background-size: 5mm 5mm;
+  pointer-events: none;
+}
+.card-front .bg-glow {
+  position: absolute;
+  right: -15mm;
+  top: -15mm;
+  width: 50mm;
+  height: 50mm;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 151, 90, 0.22) 0%, transparent 65%);
+  pointer-events: none;
+}
+.card-front .frame-line {
+  position: absolute;
+  inset: 2.2mm;
+  border: 0.6px solid rgba(247, 245, 240, 0.12);
+  border-radius: 2mm;
+  pointer-events: none;
+}
+.card-front .top-brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+.card-front .logo-box {
+  width: 14mm;
+  height: 14.5mm;
+  flex-shrink: 0;
+}
+.card-front .logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+.card-front .brand-text h1 {
+  font-size: 13.5pt;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  line-height: 1.05;
+}
+.card-front .brand-text h2 {
+  font-size: 7.2pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-top: 0.8mm;
+}
+.card-front .divider {
+  display: flex;
+  width: 28mm;
+  height: 1.5px;
+  margin-top: 1.5mm;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.card-front .divider .d1 { flex: 1; background: #FFFFFF; }
+.card-front .divider .d2 { flex: 1; background: var(--gold); }
+
+.card-front .bottom-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 2mm;
+  border-top: 0.5px solid rgba(247, 245, 240, 0.15);
+}
+.card-front .pillars-text {
+  font-family: var(--mono);
+  font-size: 5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 240, 0.65);
+}
+.card-front .site-badge {
+  font-family: var(--mono);
+  font-size: 5.2pt;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================
+   VERSO (BACK) - CORPORATIVO (AMBOS SÓCIOS)
+   ========================================= */
+.card-back {
+  background: #FCFBF7;
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5mm 6mm;
+  border: 1px solid rgba(15, 37, 71, 0.08);
+}
+.card-back .frame-inner {
+  position: absolute;
+  inset: 1.8mm;
+  border: 0.5px solid rgba(184, 151, 90, 0.3);
+  border-radius: 2mm;
+  pointer-events: none;
+}
+.card-back .bg-watermark {
+  position: absolute;
+  right: -5mm;
+  bottom: -6mm;
+  width: 32mm;
+  height: 32mm;
+  opacity: 0.045;
+  pointer-events: none;
+}
+.card-back .bg-watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Partners header */
+.partners-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 2mm;
+  border-bottom: 0.6px solid rgba(15, 37, 71, 0.1);
+}
+.partner-col h3 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+.partner-col span.role {
+  display: block;
+  font-family: var(--mono);
+  font-size: 5.2pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 0.3mm;
+}
+.partner-col a.phone {
+  display: inline-block;
+  font-size: 6.8pt;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  margin-top: 0.8mm;
+  letter-spacing: -0.01em;
+}
+
+/* Services pills */
+.services-row {
+  display: flex;
+  gap: 1.4mm;
+  position: relative;
+  z-index: 2;
+  margin: 1.2mm 0;
+}
+.service-pill {
+  font-family: var(--mono);
+  font-size: 4.6pt;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: rgba(15, 37, 71, 0.05);
+  border: 0.4px solid rgba(15, 37, 71, 0.1);
+  padding: 0.8mm 1.6mm;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* Bottom contacts row */
+.back-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background: var(--navy);
+  color: var(--off);
+  margin: -1.5mm -2.5mm -1.5mm;
+  padding: 1.8mm 3.5mm;
+  border-radius: 1.8mm;
+}
+.back-bottom .contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.2mm;
+  font-size: 6pt;
+  color: var(--off);
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-bottom .contact-link svg {
+  width: 2.8mm;
+  height: 2.8mm;
+  color: var(--gold-light);
+  flex-shrink: 0;
+}
+.back-bottom .site-highlight {
+  font-family: var(--mono);
+  font-size: 5.8pt;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+}
+
+/* =========================================
+   VERSO DARK (OPÇÃO PREMIUM NAVY COMPLETO)
+   ========================================= */
+.card-back-dark {
+  background: #0B1C38;
+  color: var(--off);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5mm 6mm;
+}
+.card-back-dark .frame-inner {
+  position: absolute;
+  inset: 1.8mm;
+  border: 0.5px solid rgba(184, 151, 90, 0.35);
+  border-radius: 2mm;
+  pointer-events: none;
+}
+.card-back-dark .partners-block {
+  border-bottom: 0.6px solid rgba(247, 245, 240, 0.12);
+}
+.card-back-dark .partner-col h3 {
+  color: #FFFFFF;
+}
+.card-back-dark .partner-col a.phone {
+  color: rgba(247, 245, 240, 0.9);
+}
+.card-back-dark .service-pill {
+  color: rgba(247, 245, 240, 0.85);
+  background: rgba(247, 245, 240, 0.06);
+  border: 0.4px solid rgba(247, 245, 240, 0.15);
+}
+.card-back-dark .back-bottom {
+  background: rgba(247, 245, 240, 0.08);
+  border: 0.4px solid rgba(184, 151, 90, 0.4);
+}
+</style>
+</head>
+<body>
+
+<div class="preview-board">
+  <div class="board-title">
+    Gualberto &amp; Dutra · Cartão de Visita Executivo
+    <span>Formato Padrão Gráfico: 90 × 50 mm · Alta Definição</span>
+  </div>
+
+  <div class="cards-row">
+    <!-- 1. FRENTE -->
+    <div class="card-wrapper">
+      <span class="label-tag">01 · Frente (Institucional)</span>
+      <div class="business-card card-front">
+        <div class="bg-grid"></div>
+        <div class="bg-glow"></div>
+        <div class="frame-line"></div>
+
+        <div class="top-brand">
+          <div class="logo-box">
+            <img src="assets/logo-gd-branca.png" alt="Logo GD">
+          </div>
+          <div class="brand-text">
+            <h1>Gualberto &amp; Dutra</h1>
+            <h2>Consultoria Varejo</h2>
+            <div class="divider">
+              <div class="d1"></div>
+              <div class="d2"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-info">
+          <div class="pillars-text">Gestão · Finanças · Pessoas · Prevenção</div>
+          <div class="site-badge">gd-consultoria.vercel.app</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. VERSO NOBRE (LIGHT EXECUTIVE) -->
+    <div class="card-wrapper">
+      <span class="label-tag">02 · Verso (Executivo Nobre)</span>
+      <div class="business-card card-back">
+        <div class="frame-inner"></div>
+        <div class="bg-watermark">
+          <img src="assets/logo-gd-azul.png" alt="">
+        </div>
+
+        <!-- Sócios -->
+        <div class="partners-block">
+          <div class="partner-col">
+            <h3>Cassio Gualberto</h3>
+            <span class="role">Sócio Fundador</span>
+            <a class="phone" href="tel:+5513988833020">(13) 98883-3020</a>
+          </div>
+          <div class="partner-col">
+            <h3>Felipe Dutra</h3>
+            <span class="role">Sócio Fundador</span>
+            <a class="phone" href="tel:+5513981774580">(13) 98177-4580</a>
+          </div>
+        </div>
+
+        <!-- Especialidades -->
+        <div class="services-row">
+          <span class="service-pill">Administração</span>
+          <span class="service-pill">Finanças</span>
+          <span class="service-pill">Recursos Humanos</span>
+          <span class="service-pill">Prev. Perdas</span>
+        </div>
+
+        <!-- Barra inferior de contato -->
+        <div class="back-bottom">
+          <span class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>
+            </svg>
+            cassio.gualberto82@gmail.com
+          </span>
+          <span class="site-highlight">gd-consultoria.vercel.app</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. VERSO DARK (ALTERNATIVE NAVY) -->
+    <div class="card-wrapper">
+      <span class="label-tag">03 · Verso (Dark Edition)</span>
+      <div class="business-card card-back-dark">
+        <div class="frame-inner"></div>
+
+        <!-- Sócios -->
+        <div class="partners-block">
+          <div class="partner-col">
+            <h3>Cassio Gualberto</h3>
+            <span class="role">Sócio Fundador</span>
+            <a class="phone" href="tel:+5513988833020">(13) 98883-3020</a>
+          </div>
+          <div class="partner-col">
+            <h3>Felipe Dutra</h3>
+            <span class="role">Sócio Fundador</span>
+            <a class="phone" href="tel:+5513981774580">(13) 98177-4580</a>
+          </div>
+        </div>
+
+        <!-- Especialidades -->
+        <div class="services-row">
+          <span class="service-pill">Administração</span>
+          <span class="service-pill">Finanças</span>
+          <span class="service-pill">Recursos Humanos</span>
+          <span class="service-pill">Prev. Perdas</span>
+        </div>
+
+        <!-- Barra inferior de contato -->
+        <div class="back-bottom">
+          <span class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>
+            </svg>
+            cassio.gualberto82@gmail.com
+          </span>
+          <span class="site-highlight">gd-consultoria.vercel.app</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

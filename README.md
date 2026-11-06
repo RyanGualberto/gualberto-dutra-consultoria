@@ -8,6 +8,9 @@ Landing page institucional e carta de apresentação (PDF).
 - `flyer.html` — fonte do flyer promocional
 - `Flyer-Gualberto-Dutra.pdf` — flyer pronto em alta definição (vetorial/impressão)
 - `Flyer-Gualberto-Dutra.png` — flyer em imagem (compartilhamento/WhatsApp/redes)
+- `Cartao-de-Visita-Gualberto-Dutra.png` — mockup de apresentação do cartão de visita (frente e verso)
+- `Cartao-de-Visita-Gualberto-Dutra.pdf` — cartão de visita pronto para impressão gráfica (90 × 50 mm)
+- `cartao-de-visita.html` — fonte do cartão de visita
 - `assets/` — logos com fundo transparente (azul e branca)
 
 ## Contato
