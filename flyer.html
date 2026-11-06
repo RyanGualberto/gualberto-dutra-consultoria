@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Flyer · Gualberto &amp; Dutra Consultoria Varejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+:root {
+  --navy: #0F2547;
+  --navy-900: #0A1A33;
+  --navy-700: #1B3866;
+  --off: #F8F7F3;
+  --off-card: #FFFFFF;
+  --gold: #B8975A;
+  --gold-soft: #D9C49A;
+  --gold-bg: rgba(184, 151, 90, 0.12);
+  --ink-60: rgba(15, 37, 71, 0.65);
+  --ink-40: rgba(15, 37, 71, 0.42);
+  --ink-10: rgba(15, 37, 71, 0.08);
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: #E5E2DA;
+  font-family: var(--sans);
+  color: var(--navy);
+}
+.page-container {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  background: var(--off);
+  position: relative;
+  overflow: hidden;
+  padding: 14mm 14mm 12mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+@media print {
+  body { background: transparent; }
+  .page-container {
+    width: 210mm;
+    height: 297mm;
+    box-shadow: none;
+    margin: 0;
+    page-break-after: avoid;
+  }
+}
+
+/* Background subtle graphics */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--ink-10) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink-10) 1px, transparent 1px);
+  background-size: 10mm 10mm;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.bg-rings {
+  position: absolute;
+  top: -60mm;
+  right: -50mm;
+  width: 160mm;
+  height: 160mm;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.bg-rings circle {
+  fill: none;
+  stroke: var(--ink-10);
+  stroke-width: 1.2;
+}
+
+/* Outer elegant border */
+.border-frame {
+  position: absolute;
+  inset: 6mm;
+  border: 1.5px solid rgba(15, 37, 71, 0.18);
+  border-radius: 4mm;
+  pointer-events: none;
+}
+.border-frame::after {
+  content: "";
+  position: absolute;
+  inset: 1.5mm;
+  border: 0.5px solid rgba(184, 151, 90, 0.35);
+  border-radius: 3mm;
+}
+
+/* Header */
+.header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 4mm;
+}
+.logo-wrap {
+  width: 28mm;
+  height: 29mm;
+  margin: 0 auto 3.5mm;
+}
+.logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(15, 37, 71, 0.12));
+}
+.brand-title {
+  font-size: 26pt;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--navy);
+}
+.brand-sub {
+  font-size: 14.5pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+  margin-top: 1.5mm;
+}
+.brand-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60mm;
+  height: 3px;
+  margin: 3.5mm auto 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.brand-divider .b-navy {
+  flex: 1;
+  height: 100%;
+  background: var(--navy);
+}
+.brand-divider .b-gold {
+  flex: 1;
+  height: 100%;
+  background: var(--gold);
+}
+.tagline {
+  font-size: 8.5pt;
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+  margin-top: 3mm;
+}
+
+/* Pillars Section */
+.pillars {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+  margin: 5mm 0;
+}
+.pillar-card {
+  background: var(--off-card);
+  border: 1px solid rgba(15, 37, 71, 0.12);
+  border-radius: 4.5mm;
+  padding: 4.5mm 5.5mm;
+  display: grid;
+  grid-template-columns: 18mm 1fr;
+  align-items: center;
+  gap: 4.5mm;
+  box-shadow: 0 4px 16px -6px rgba(15, 37, 71, 0.08);
+  position: relative;
+}
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3.5mm;
+  bottom: 3.5mm;
+  width: 3.5px;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+}
+.p-icon-box {
+  width: 17mm;
+  height: 17mm;
+  border-radius: 3.5mm;
+  background: rgba(15, 37, 71, 0.04);
+  display: grid;
+  place-items: center;
+  color: var(--navy);
+  border: 1px solid rgba(15, 37, 71, 0.08);
+}
+.p-icon-box svg {
+  width: 10mm;
+  height: 10mm;
+}
+.p-content h3 {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 1.2mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.p-content h3 span.badge {
+  font-family: var(--mono);
+  font-size: 6.8pt;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.p-content p {
+  font-size: 9.2pt;
+  line-height: 1.4;
+  color: var(--ink-60);
+  font-weight: 400;
+}
+.p-tags {
+  display: flex;
+  gap: 1.8mm;
+  margin-top: 2.2mm;
+}
+.p-tag {
+  font-family: var(--mono);
+  font-size: 6.8pt;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  background: rgba(15, 37, 71, 0.05);
+  padding: 0.8mm 2mm;
+  border-radius: 99px;
+  border: 0.5px solid rgba(15, 37, 71, 0.1);
+}
+
+/* Call to action bar */
+.cta-banner {
+  background: var(--navy);
+  color: var(--off);
+  border-radius: 4mm;
+  padding: 4mm 6mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3.5mm;
+}
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  right: -10mm;
+  top: -10mm;
+  width: 40mm;
+  height: 40mm;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,151,90,0.3), transparent 70%);
+}
+.cta-text h4 {
+  font-size: 11.5pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cta-text p {
+  font-size: 7.8pt;
+  color: rgba(246, 244, 239, 0.7);
+  margin-top: 0.6mm;
+}
+.cta-badge {
+  font-family: var(--mono);
+  font-size: 7pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--gold-soft);
+  font-weight: 600;
+  padding: 1.8mm 3.5mm;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* Footer / Contact Bar */
+.footer-contact {
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(15, 37, 71, 0.15);
+  border-radius: 4.5mm;
+  padding: 4.5mm 5mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px -10px rgba(15, 37, 71, 0.15);
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  flex: 1;
+}
+.contact-item:not(:last-child) {
+  border-right: 1px solid rgba(15, 37, 71, 0.1);
+  padding-right: 3mm;
+  margin-right: 3mm;
+}
+.c-icon {
+  width: 9.5mm;
+  height: 9.5mm;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--off);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.c-icon svg {
+  width: 5mm;
+  height: 5mm;
+}
+.c-info {
+  display: flex;
+  flex-direction: column;
+}
+.c-label {
+  font-family: var(--mono);
+  font-size: 6.2pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-40);
+  font-weight: 600;
+  margin-bottom: 0.5mm;
+}
+.c-value {
+  font-size: 8.4pt;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.c-value.site {
+  color: var(--navy-700);
+}
+</style>
+</head>
+<body>
+
+<div class="page-container">
+  <div class="bg-grid"></div>
+  <svg class="bg-rings" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="30" />
+    <circle cx="100" cy="100" r="50" />
+    <circle cx="100" cy="100" r="70" />
+    <circle cx="100" cy="100" r="90" />
+  </svg>
+  <div class="border-frame"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-wrap">
+      <img src="assets/logo-gd-azul.png" alt="Logo Gualberto &amp; Dutra">
+    </div>
+    <h1 class="brand-title">Gualberto &amp; Dutra</h1>
+    <h2 class="brand-sub">Consultoria Varejo</h2>
+    <div class="brand-divider">
+      <div class="b-navy"></div>
+      <div class="b-gold"></div>
+    </div>
+    <div class="tagline">Gestão estratégica · Processos · Pessoas · Prevenção</div>
+  </header>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <!-- 1. Administração -->
+    <article class="pillar-card">
+      <div class="p-icon-box">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="30" cy="34" r="9"/>
+          <path d="M30 14v6M30 48v6M10 34h6M44 34h6M16 20l4 4M40 44l4 4M16 48l4-4M40 24l4-4"/>
+          <circle cx="56" cy="58" r="15"/>
+          <polyline points="56,49 56,58 62,62"/>
+          <path d="M52 40h8M56 40v3"/>
+        </svg>
+      </div>
+      <div class="p-content">
+        <h3>Administração <span class="badge">01 · ADM</span></h3>
+        <p>Otimização de processos administrativos e eficiência operacional do back-office à operação de loja.</p>
+        <div class="p-tags">
+          <span class="p-tag">Mapeamento de Processos</span>
+          <span class="p-tag">Indicadores (KPIs)</span>
+          <span class="p-tag">Rotinas de Gestão</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. Finanças -->
+    <article class="pillar-card">
+      <div class="p-icon-box">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="24" cy="56" rx="12" ry="4"/>
+          <path d="M12 56v12c0 2.2 5.4 4 12 4s12-1.8 12-4V56M12 62c0 2.2 5.4 4 12 4s12-1.8 12-4"/>
+          <ellipse cx="54" cy="48" rx="12" ry="4"/>
+          <path d="M42 48v20c0 2.2 5.4 4 12 4s12-1.8 12-4V48M42 56c0 2.2 5.4 4 12 4s12-1.8 12-4M42 62c0 2.2 5.4 4 12 4s12-1.8 12-4"/>
+          <polyline points="12,36 28,24 40,30 66,10"/>
+          <polyline points="56,10 66,10 66,20"/>
+        </svg>
+      </div>
+      <div class="p-content">
+        <h3>Finanças <span class="badge">02 · FIN</span></h3>
+        <p>Controle de fluxo de caixa, gestão criteriosa de custos e planejamento orçamentário para decisões com segurança.</p>
+        <div class="p-tags">
+          <span class="p-tag">Fluxo de Caixa</span>
+          <span class="p-tag">Gestão de Custos</span>
+          <span class="p-tag">Planejamento Orçamentário</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. Recursos Humanos -->
+    <article class="pillar-card">
+      <div class="p-icon-box">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="42" cy="42" r="26" stroke-dasharray="10 8"/>
+          <circle cx="42" cy="12" r="5"/><path d="M34 24c0-4 3.6-6 8-6s8 2 8 6"/>
+          <circle cx="42" cy="62" r="5"/><path d="M34 74c0-4 3.6-6 8-6s8 2 8 6"/>
+          <circle cx="14" cy="38" r="5"/><path d="M6 50c0-4 3.6-6 8-6s8 2 8 6"/>
+          <circle cx="70" cy="38" r="5"/><path d="M62 50c0-4 3.6-6 8-6s8 2 8 6"/>
+        </svg>
+      </div>
+      <div class="p-content">
+        <h3>Recursos Humanos (RH) <span class="badge">03 · RH</span></h3>
+        <p>Treinamento de equipes, recrutamento assertivo e alinhamento estratégico para alta performance.</p>
+        <div class="p-tags">
+          <span class="p-tag">Treinamento de Equipes</span>
+          <span class="p-tag">Recrutamento</span>
+          <span class="p-tag">Liderança &amp; Cultura</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. Prevenção de Perdas -->
+    <article class="pillar-card">
+      <div class="p-icon-box">
+        <svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 18l44 10-4 16-44-10z"/><circle cx="52" cy="35" r="4"/>
+          <path d="M58 28l10 3-2 8-10-3"/>
+          <path d="M24 37v14H12M12 44v14"/>
+          <path d="M60 50l14 4v9c0 7-6 11-14 13-8-2-14-6-14-13v-9z"/>
+          <polyline points="54,63 58,67 66,59"/>
+        </svg>
+      </div>
+      <div class="p-content">
+        <h3>Prevenção de Perdas <span class="badge">04 · PP</span></h3>
+        <p>Auditoria contínua de processos, segurança patrimonial estratégica e redução expressiva de quebras.</p>
+        <div class="p-tags">
+          <span class="p-tag">Auditoria de Processos</span>
+          <span class="p-tag">Segurança Patrimonial</span>
+          <span class="p-tag">Redução de Quebras</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-text">
+      <h4>Agende um diagnóstico inicial para a sua operação</h4>
+      <p>Entenda onde estão os gargalos e as maiores oportunidades do seu negócio.</p>
+    </div>
+    <div class="cta-badge">Diagnóstico 360°</div>
+  </div>
+
+  <!-- FOOTER CONTACT BAR (SÓ NÚMERO, EMAIL E URL DO SITE) -->
+  <footer class="footer-contact">
+    <!-- Telefones -->
+    <div class="contact-item">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <div class="c-info">
+        <span class="c-label">Telefone / WhatsApp</span>
+        <span class="c-value">(13) 98883-3020</span>
+        <span class="c-value" style="font-weight:600;font-size:7.8pt;color:var(--ink-60);margin-top:0.4mm">(13) 98177-4580</span>
+      </div>
+    </div>
+
+    <!-- E-mail -->
+    <div class="contact-item">
+      <div class="c-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3.5 6.5 8.5 6.5 8.5-6.5"/>
+        </svg>
+      </div>
+      <div class="c-info">
+        <span class="c-label">E-mail</span>
+        <a class="c-value" href="mailto:cassio.gualberto82@gmail.com">cassio.gualberto82@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Website -->
+    <div class="contact-item">
+      <div class="c-icon" style="background:var(--gold);color:var(--navy-900)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="c-info">
+        <span class="c-label">Website Oficial</span>
+        <a class="c-value site" href="https://gd-consultoria.vercel.app" target="_blank" rel="noopener">gd-consultoria.vercel.app</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

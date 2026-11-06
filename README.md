@@ -5,6 +5,9 @@ Landing page institucional e carta de apresentação (PDF).
 - `index.html` — landing page (GSAP + ScrollTrigger + Lenis)
 - `apresentacao.html` — fonte da apresentação
 - `Apresentacao-Gualberto-Dutra.pdf` — apresentação pronta
+- `flyer.html` — fonte do flyer promocional
+- `Flyer-Gualberto-Dutra.pdf` — flyer pronto em alta definição (vetorial/impressão)
+- `Flyer-Gualberto-Dutra.png` — flyer em imagem (compartilhamento/WhatsApp/redes)
 - `assets/` — logos com fundo transparente (azul e branca)
 
 ## Contato
